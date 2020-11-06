@@ -28,7 +28,11 @@ class EventsController extends BaseController
      * @return \Illuminate\Http\JsonResponse
      * @throws \App\Exceptions\TransformerException
      */
-    public function getEvent(Event $event) {
+    public function getEvent($event) {
+        $event = EventFacade::get($event);
+        if(!isset($event)){
+            abort(404);
+        }
         if(!$event->is_active)
             return $this->error('EVENT_ERRORS', 'EVENT_NOT_FOUND');
 

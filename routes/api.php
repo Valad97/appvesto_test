@@ -13,10 +13,15 @@
 
 Route::group(['prefix' => 'v1', 'middleware' => ['api']], function () {
 
+    // Comments
+    Route::apiResource('comments', 'CommentController');
+    Route::group(['prefix' => 'comments'], function () {
+        Route::get('all_by_event/{event}', 'CommentController@all_by_event');
+    });
     // Events
     Route::group(['prefix' => 'events'], function () {
         Route::get('', 'EventsController@getAll');
-        Route::get('{event}', 'EventsController@getEvent');
+        Route::get('{event}', 'EventsController@getEvent')->name('event');
     });
 
 });

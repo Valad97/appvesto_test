@@ -47,4 +47,12 @@ class Event extends Model
         'start_time',
         'end_time',
     ];
+
+    /**
+     * The roles that belong to the comment.
+     */
+    public function comments()
+    {
+        return $this->belongsToMany('App\Models\Entities\Comment');
+    }
 }

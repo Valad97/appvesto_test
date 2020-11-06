@@ -161,6 +161,9 @@ return [
         \App\Repositories\Event\EventRepositoryServiceProvider::class,
         \App\Services\Event\EventServiceServiceProvider::class,
 
+        \App\Repositories\Comment\CommentRepositoryServiceProvider::class,
+        \App\Services\Comment\CommentServiceServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
