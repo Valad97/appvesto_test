@@ -23,8 +23,8 @@ class EventsTransformer extends Fractal\TransformerAbstract
                 'location'              => (string) $event->location,
                 'image'                 => (string) $event->image ? url('uploads/original/' . $event->image) : '',
                 'pdf'                   => (string) $event->pdf ? url('uploads/original/' . $event->pdf) : '',
-                'comment_first_title'   =>  $event->comments()->first()->title,
-                'comment_first_content' =>  $event->comments()->first()->content
+                'comment_first_title'   =>  $event->comments()->first()->title??'',
+                'comment_first_content' =>  $event->comments()->first()->content??''
             ];
         }
         catch (\Exception $exception) {
